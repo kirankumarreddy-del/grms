@@ -1,0 +1,298 @@
+-----------------------------------------------------  CASE-STUDY-REPORT   ---------------------------------------------------------------
+
+
+1. Basic Git Workflow
+
+Scenario: Create a simple project (e.g., a "Hello World" program in any language). Initialize a Git repository, 
+          create a few commits as youmake changes to the project, and push the changes to GitHub.
+
+MY_EXECUTION:
+--> First created a file "sample.py"(print("Hello mate")). 
+--> Next opened terminal(command prompt) and followed below steps.
+
+-Initialized git. 
+•git init
+
+-Added file(sample.py). 
+•git add sample.py
+
+-committed the file(sample.py).
+•git commit -m "commit sample.py"
+
+-connected to my remote repository.
+•git remote add origin git@github.com:ChetanReddy001/Case-Study
+
+-Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Branching and Merging
+
+Scenario: Create a project with a main branch. Add a new feature on a separate branch and merge it 
+          back into the main branch. Resolve any merge conflicts that arise.
+
+MY_EXECUTION:
+--> First created a file "sample.py"(print("Hello mate")). 
+--> Next opened terminal(command prompt) and followed below steps.
+
+-->Initialized git. 
+•git init
+
+-->Added file(sample.py). 
+•git add sample.py
+
+-->committed the file(sample.py).
+•git commit -m "commit sample.py"
+
+-->connected to my remote repository.
+•git remote add origin git@github.com:ChetanReddy001/Case-Study
+
+-->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+-->created and switched to new branch.
+•git checkout -b demo
+
+-->modified the file(sample.py) in editor using commands.
+•vi sample.py 
+
+-->pushed the modified file as demo branch.
+•git push -u origin master
+
+-->merged the files from both branches.
+•git merge demo master
+
+-->switched to main branch to clear pull request from command prompt.
+•git checkout master
+
+-->pull the data from repository as master branch.
+•git pull
+
+-->push the file again as master branch to merge both files.
+•git push -u origin master
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Collaborative Workflow
+
+Scenario: Simulate a team environment where you clone a repository, create a branch to make some changes,
+          push the changes, and open a pull request. Have someone else review and merge the pull request.
+
+MY_EXECUTION:
+--> First login github to open and "fork" any open source project created by another person in github then
+ clone the project to your repository.
+•git clone git@github.com:00chetan/test
+
+-->Cloned test repository from another person and modified the file as newly created branch.
+•git checkout -b demo
+
+-->Added the newly modified file (test).
+•git add test
+
+-->Committed the file(test).
+•git commit -m "commit test"
+
+-->Connected to my remote repository.
+•git remote add origin git@github.com:ChetanReddy001/Case-Study
+
+-->Pushed the file(test) to repository.
+•git push -u origin master
+
+-->In github, generated pull request to review and update by author of the project.Once the author confirm my 
+pull request then the changes from my updated file will reflect on author side aswell.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Reverting Changes
+
+Scenario: Make a few changes to a project and commit them. Then, simulate a situation where a change needs to be undone
+          or reverted to an earlier state.
+
+MY_EXECUTION:
+--> First created a file "sample.py"(print("Hello mate")). 
+--> Next opened terminal(command prompt) and followed below steps.
+
+-->Initialized git. 
+•git init
+
+-->Added file(sample.py).
+•git add sample.py
+
+-->committed the file(sample.py).
+•git commit -m "commit sample.py"
+
+-->connected to my remote repository.
+•git remote add origin git@github.com:ChetanReddy001/Case-Study
+
+-->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+-->Modified the file(sample.py) and committed again.
+•git commit -m "modified sample.py"
+
+--->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+-->Now checked all commits through terminal.
+•git log 
+
+-->Now reverted the last commit. 
+•git revert 39984938h823g2
+
+-->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+-->used reset to shift to previous stage.
+-->soft moves to previous stage without changing staging area and viceversa
+•git reset --hard 79985938o893g1  
+•git reset --soft 79985938o893g1  
+
+-->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+-->used checkout to keep the repository in previous stage.
+•git checkout 39984938h823g2
+
+-->Pushed the file(sample.py) to repository.
+•git push -u origin master
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Using Git with GitHub Pages
+
+Scenario: Create a static website (e.g., an HTML page) and host it on GitHub Pages. Learn how to push changes and see them reflected 
+          on the live website.
+
+MY_EXECUTION:
+--> First created html page (index.html).
+--> pushed the file to repository.
+
+-->Initialized git. 
+•git init
+
+-->Added file(index.html). 
+•git add index.html
+
+-->committed the file(index.html).
+•git commit -m "commit index.html"
+
+-->connected to my remote repository.
+•git remote add origin git@github.com:ChetanReddy001/Case-Study
+
+-->Pushed the file(index.html) to repository.
+•git push -u origin master
+
+-->Opened github repository and get into settings(settings->pages->select branch->save)then a link is generated
+(https://ChetanReddy.github.io/index.html) click on it to view live webpage.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+6. Working with Git Tags
+
+Scenario: Simulate a software release process by tagging specific commits as different versions (e.g., v1.0, v1.1). Practice pushing 
+          these tags to a remote repository.
+
+MY_EXECUTION:
+-->Created a file(sample.py) in remote repository. 
+-->Generated a lightweight tag using terminal.
+•git tag v1.1
+
+-->Generated a annotated tag using terminal.
+•git tag -a v1.1 -m "Release v1.1"
+
+-->Then push to remote repository to view changes in github.
+•git push -u origin master
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+7. Stashing Changes
+
+Scenario: Simulate a situation where you need to switch branches but have uncommitted changes. Use git stash to save your work then
+          switch branches, and then apply the changes back.
+
+MY_EXECUTION:
+-->First created a file in remote repository.
+-->Now added few modifications to the file(sample.py) and add it without commit.
+•git add sample.py
+
+-->used stash to temporarily save the work as stash.
+•git stash
+
+-->now changed branch and stashed it back using file name to continue working on the file.
+•git checkout -b demo
+•git stash sample.py
+
+**NOTE**
+•git stash pop (retrieve recent stash file and clear all stash)
+•git stash apply (retrive recent stash witout affecting stash)
+**
+
+-->Then push to remote repository to view changes in github.
+•git push -u origin master
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+8. Exploring Git History
+
+Scenario:Practice navigating the commit history to understand how changes evolved over time. Use git log to view commit details and
+         git diff to see differences between commits.
+
+MY_EXECUTION:
+-->First created a file(sample.py) in remote repository.
+-->Now added few modifications to the file(sample.py) and commited. 
+•git commit -m "first commit"
+
+-->Now agian added few modifications to the file(sample.py) and commited. 
+•git commit -m "second commit"
+
+-->Used git log to check all commits/commit history in terminal.
+•git log
+
+-->Used git diff to view and compare commited modifications in file.
+•git diff sample.py
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+9. Git Hooks
+
+Scenario: Set up a pre-commit hook to check for code formatting or linting before allowing a commit. This can help enforce 
+          coding standards.
+
+MY_EXECUTION:
+-->First created a file(sample.py) in remote repository.
+-->Now opened ".git" directory in my code editor then goto subfolder(Hooks) and added new file(pre-commit) and inserted few 
+script lines in the file for code formatting.
+
+--> opened terminal and connected the directory(C:\Users\Greemus\Desktop\demo\.git\hooks\pre-commit) and made the file executable.
+•git chmod +x pre-commit
+
+-->Now commited the file(sample.py) to see the hook behaviour and pushed the to repository as i done before.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+10. Git Rebase
+
+Scenario: Create a feature branch from the main branch, make some commits, then rebase the feature branch onto the main branch 
+to bring it up to date.
+
+MY_EXECUTION:
+-->First created a file(sample.py) in remote repository.
+
+-->Opened terminal and create a branch. 
+•git checkout -b demo
+
+-->Commited the file through demo branch.
+•git commit -m "commit sample"
+
+-->Used Rebase to incorporate feature branch(demo) commits in main/master.
+•git rebase master
+
+-->Now switch to master branch.
+•git checkout master
+
+-->Again rebase feature branch(demo).
+•git rebase demo
+
+-->Then push to remote repository to view changes.
+•git push -u origin master
